@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
-import Header from './components/Header'
+//import Header from './components/Header'
+import Access from './components/Access'
 import LoginContext from './context/LoginContext'
 import ListClassifieds from './components/ListClassifieds'
 import DetailClassifieds from './components/DetailClassified'
@@ -17,7 +18,7 @@ class App extends Component {
       <Router>
         <LoginContext>
           <div className='App bg-light'>
-            <Header />
+            <Access />
             <main className='container'>
               <Switch>
                 <Route path='/login' component={Login} />

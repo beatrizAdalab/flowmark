@@ -8,6 +8,7 @@ function Login() {
     const [userPassword, setUserPassword] = useState('');
     const [redirect, setRedirect] = useState()
 
+
     const renderRedirect = () => {
         if (redirect) {
             return <Redirect to={`/listClassifieds/?all`} />
@@ -17,7 +18,6 @@ function Login() {
     return (
         <LoginConsumer>
             {(value) => {
-                console.log('COMPONENTE  MONTADO')
 
                 const checkLogin = async (e) => {
                     e.preventDefault()

@@ -59,7 +59,7 @@ export const api = {
                 credentials: 'include'
             });
             const data = await response.json();
-            console.log("classifieds", data.results)
+            console.log("classifieds", data)
             return data.results
         } catch (error) { console.log(error) }
     },

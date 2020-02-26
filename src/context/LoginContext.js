@@ -17,10 +17,6 @@ class LoginContext extends Component {
         };
     }
 
-    componentDidMount() {
-        console.log('COMPONENTE LOGINCONTEXT MONTADO')
-    }
-
     loginUser = async (userName, userPassword) => {
         const isLogin = await api.login(userName, userPassword)
         const error = isLogin.error
