@@ -33,7 +33,7 @@ main {
 }
 
 @media (min-width: 992px) {
-  .card {
+  .card{
     min-height: 440px;
   }
   .card-container-img {

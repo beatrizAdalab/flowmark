@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { LoginConsumer } from '../context/LoginContext';
 
-// fontawesome imports
+// get our fontawesome imports
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -11,6 +11,7 @@ const CardClassified = ({ classified }) => {
     return (
         <LoginConsumer>
             {(value) => {
+
                 return (<div
                     className='col-6 col-md-4 col-lg-3 mb-5'>
                     <div className='card shadow-sm bg-white rounded'>

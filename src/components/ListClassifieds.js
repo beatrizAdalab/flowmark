@@ -51,7 +51,7 @@ class ListClassifieds extends Component {
             paramsFilter: {
                 ...paramsSearch
             }
-        }, () => console.log(this.state, 'paramsFileter'))
+        })
     }
 
     handleChange = (e) => {
@@ -63,10 +63,10 @@ class ListClassifieds extends Component {
         this.setState({
             paramsFilter: { ...data, [name]: value }
         })
+
     }
 
     render() {
-
         const { classifieds, tags, loaded } = this.state.store
         return (
             <LoginConsumer>

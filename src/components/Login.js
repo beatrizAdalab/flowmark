@@ -17,6 +17,7 @@ function Login() {
     return (
         <LoginConsumer>
             {(value) => {
+                console.log('COMPONENTE  MONTADO')
 
                 const checkLogin = async (e) => {
                     e.preventDefault()

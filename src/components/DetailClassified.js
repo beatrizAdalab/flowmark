@@ -27,12 +27,15 @@ class DetailClassified extends Component {
         const { tags, _id, name, price, description, type, photo, updateAt } = this.state.classified
         return (
 
-            <LoginConsumer>
+
+            < LoginConsumer >
                 {(value) => {
+                    console.log('COMPONENTE detail MONTADO')
 
                     return (
 
                         <div>
+
                             <h1>detalle</h1>
                             <div>id:{_id}</div>
                             <div>name: {name}</div>
@@ -40,7 +43,8 @@ class DetailClassified extends Component {
                             <div>description: {description}</div>
                         </div>
                     )
-                }}
+                }
+                }
             </LoginConsumer>
         )
     }
