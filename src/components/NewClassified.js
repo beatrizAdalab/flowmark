@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { LoginConsumer } from '../context/LoginContext';
 import { api } from '../api'
+import { Redirect } from 'react-router-dom';
 import FormClassified from './FormClassifieds'
 
 
@@ -17,8 +18,8 @@ class NewClassified extends Component {
                 photo: '',
             },
             status: {
-                success: Boolean,
-                error: ''
+                success: '',
+                error: false
             }
         }
     }
@@ -48,6 +49,13 @@ class NewClassified extends Component {
         this.createNewClassified(this.state.classified)
     }
 
+    renderRedirect = () => {
+        const redirect = this.state.status.success
+        if (redirect) {
+            return <Redirect to={`/listClassifieds/?name=${this.state.classified.name}`} />
+        }
+    }
+
     render() {
         return (
             <LoginConsumer>
@@ -55,6 +63,7 @@ class NewClassified extends Component {
                     const { success, error } = this.state.status
                     return (
                         <div className='container p-5'>
+                            {this.renderRedirect()}
 
                             {success === true ?
                                 <div className='alert alert-success' role='alert'>

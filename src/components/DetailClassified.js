@@ -41,7 +41,7 @@ class DetailClassified extends Component {
                                         <ReactImageFallback
                                             src={photo}
                                             fallbackImage={nophoto}
-                                            className='card-img detail-img'
+                                            className='card-img detail-img border-right'
                                             alt={name}
                                         />
                                     </div>

@@ -99,7 +99,9 @@ class ListClassifieds extends Component {
                                             ))}
                                         </div>
                                     </div>
-                                    : <div>Its seems that there is no classifieds... try again</div>
+                                    : <div className='d-flex justify-content-center align-content-center py-5'>
+                                        <h4 className='text-secondary'>Ups! Its seems that there is no classifieds... try again</h4>
+                                    </div>
                             }
                         </div>
                     )

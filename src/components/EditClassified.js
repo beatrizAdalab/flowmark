@@ -73,10 +73,9 @@ class EditClassified extends Component {
     }
 
     renderRedirect = () => {
-        const id = this.props.match.params.id
         const redirect = this.state.status.success
         if (redirect) {
-            return <Redirect to={`/detailClassifieds/${id}`} />
+            return <Redirect to={`/listClassifieds/?name=${this.state.classified.name}`} />
         }
     }
 

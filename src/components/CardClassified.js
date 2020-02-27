@@ -34,6 +34,7 @@ const CardClassified = ({ classified }) => {
                                 <div className='card-body p-2'>
                                     <h5 className='card-title'> {classified.name}</h5>
                                     <p className='text-info'> {classified.price} €</p>
+                                    <p > {classified.description} </p>
                                 </div>
                             </Link>
                             <div className='card-footer bg-transparent p-2'>
