@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
-//import Header from './components/Header'
+import ErrorBoundary from './ErrorBoundary'
 import Access from './components/Access'
 import LoginContext from './context/LoginContext'
 import ListClassifieds from './components/ListClassifieds'
@@ -16,22 +16,24 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <LoginContext>
-          <div className='App bg-light'>
-            <Access />
-            <main className='container'>
-              <Switch>
-                <Route path='/login' component={Login} />
-                <Route path='/register' component={Register} />
-                <Route path='/listClassifieds/' component={ListClassifieds} />
-                <Route path='/detailClassifieds/:id' component={DetailClassifieds} />
-                <Route path='/editClassifieds/:id' component={EditClassifieds} />
-                <Route path='/newClassified' component={NewClassified} />
-                <Redirect to='/login' />
-              </Switch>
-            </main>
-          </div>
-        </LoginContext>
+        <ErrorBoundary>
+          <LoginContext>
+            <div className='App bg-light'>
+              <Access />
+              <main className='container'>
+                <Switch>
+                  <Route path='/login' component={Login} />
+                  <Route path='/register' component={Register} />
+                  <Route path='/listClassifieds/' component={ListClassifieds} />
+                  <Route path='/detailClassifieds/:id' component={DetailClassifieds} />
+                  <Route path='/editClassifieds/:id' component={EditClassifieds} />
+                  <Route path='/newClassified' component={NewClassified} />
+                  <Redirect to='/login' />
+                </Switch>
+              </main>
+            </div>
+          </LoginContext>
+        </ErrorBoundary>
       </Router>
     );
   }

@@ -13,6 +13,7 @@ function Header() {
 
         <LoginConsumer>
             {(value) => {
+
                 return (
 
                     <nav className='navbar navbar-light bg-white fixed-top'>
@@ -22,7 +23,7 @@ function Header() {
                             </Link>
 
                             <div className='d-flex justify-content-center align-items-center'>
-                                {value.access.userName}
+
                                 <Link to='/login'>
                                     <button
                                         className='btn btn-link'

@@ -87,7 +87,7 @@ export const api = {
             const data = await response.json();
             console.log("detail", data.result)
             return data.result
-        } catch (error) { console.log(error) }
+        } catch (error) { return error }
     },
 
     editClassified: async function (id, params) {

@@ -18,7 +18,8 @@ class Access extends Component {
     }
 
     checkCookiesWhitCall = async () => {
-        const test = await api.newClassified()
+        const test = await api.getDetail('')
+        console.log(test, 'test')
         this.setState({
             test
         })
@@ -33,7 +34,7 @@ class Access extends Component {
     render() {
         return (
             <div>
-                {this.renderRedirect()}
+
                 <Header />
             </div>
         )

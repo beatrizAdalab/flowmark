@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { urlRouter } from '../router';
 import { api } from '../api'
 import { LoginConsumer } from '../context/LoginContext';
