@@ -24,8 +24,8 @@ export const api = {
                 credentials: 'include'
             });
             const data = await response.json();
-            console.log(data.success)
-            return data.success
+            console.log(data)
+            return data
         } catch (error) { console.log(error) }
     },
 

@@ -11,7 +11,8 @@ class LoginContext extends Component {
         this.state = {
             login: false,
             register: false,
-            error: false,
+            error: '',
+            errorRegister: '',
             userName: '',
             userPassword: ''
         };
@@ -19,7 +20,6 @@ class LoginContext extends Component {
 
 
     loginUser = async (isLogin, error) => {
-       
         const dataAccess = this.state
         if (isLogin.success) {
             this.setState({
@@ -38,7 +38,7 @@ class LoginContext extends Component {
         const isRegister = await api.register(userName, userPassword)
         const error = isRegister.error
         const dataAccess = this.state
-        if (isRegister) {
+        if (isRegister.success) {
             this.setState({
                 login: false,
                 register: true,
@@ -47,7 +47,7 @@ class LoginContext extends Component {
             })
         } else {
             this.setState({
-                dataAccess, error
+                dataAccess, errorRegister:error
             })
         }
     }

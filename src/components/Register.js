@@ -5,7 +5,7 @@ import { LoginConsumer } from '../context/LoginContext';
 function Register() {
     const [userName, setUserName] = useState('');
     const [userPassword, setUserPassword] = useState('');
-    const [redirect, setRedirect] = useState()
+    const [redirect, setRedirect] = useState(false)
 
     const renderRedirect = () => {
         if (redirect) {
@@ -16,13 +16,14 @@ function Register() {
     return (
         <LoginConsumer>
             {(value) => {
-                console.log(value.access.register)
+                console.log(value.access)
 
                 const checkRegister = async (e) => {
                     e.preventDefault()
                     await value.registerUser(userName, userPassword)
                 }
 
+                console.log(value, 'value')
                 setRedirect(value.access.register)
 
                 return (
@@ -30,11 +31,11 @@ function Register() {
 
                         {renderRedirect()}
 
-                        {value.access.register ?
+                        {value.access.errorRegister ?
                             <div className='alert alert-danger ' role='alert'>
-                                Ups.. {value.access.register}
+                                Ups.. {value.access.errorRegister}
                             </div> : < div className='alert alert-danger invisible ' role='alert'>
-                                Ups.. {value.access.register}
+                                Ups.. {value.access.errorRegister}
                             </div>}
 
                         <div className=' d-flex justify-content-center pt-4'>
