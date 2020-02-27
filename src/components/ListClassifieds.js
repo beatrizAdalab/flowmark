@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { urlRouter } from '../router';
 import { api } from '../api'
 import { LoginConsumer } from '../context/LoginContext';
@@ -86,17 +86,19 @@ class ListClassifieds extends Component {
                                 </Link>
                             </div>
 
-                            {classifieds.length > 0 ?
-                                <div className='container-classifieds pt-4'>
-                                    <div className='row'>
-                                        {classifieds.map(item => (
-                                            <CardClassified
-                                                classified={item}
-                                                key={item._id} />
-                                        ))}
+                            {!classifieds ?
+                                <Redirect to={`/login`} /> :
+                                classifieds.length > 0 ?
+                                    <div className='container-classifieds pt-4'>
+                                        <div className='row'>
+                                            {classifieds.map(item => (
+                                                <CardClassified
+                                                    classified={item}
+                                                    key={item._id} />
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                                : <div>Its seems that there is no classifieds... try again</div>
+                                    : <div>Its seems that there is no classifieds... try again</div>
                             }
                         </div>
                     )
