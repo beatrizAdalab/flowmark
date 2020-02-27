@@ -4,7 +4,6 @@ import { api } from '../api'
 import FormClassified from './FormClassifieds'
 
 
-
 class NewClassified extends Component {
     constructor(props) {
         super(props);
@@ -18,14 +17,13 @@ class NewClassified extends Component {
                 photo: '',
             },
             status: {
-                success:Boolean,
-                error:''
+                success: Boolean,
+                error: ''
             }
         }
     }
 
     createNewClassified = async (newClassified) => {
-
         this.setState({
             status: await api.newClassified(newClassified)
         })
@@ -35,10 +33,10 @@ class NewClassified extends Component {
         const element = e.target
         const data = this.state.classified
         const name = element.name
-        const value = 
-        name === 'tags' ? 
-        element.value ?element.value.split(','): [] : 
-        element.value;
+        const value =
+            name === 'tags' ?
+                element.value ? element.value.split(',') : [] :
+                element.value;
 
         this.setState({
             classified: { ...data, [name]: value }
@@ -54,21 +52,23 @@ class NewClassified extends Component {
         return (
             <LoginConsumer>
                 {(value) => {
-                    const { success , error} = this.state.status
+                    const { success, error } = this.state.status
                     return (
                         <div className='container p-5'>
+
                             {success === true ?
                                 <div className='alert alert-success' role='alert'>
                                     Classified created
                             </div> :
-                            success === false ?
+                                success === false ?
                                     < div className='alert alert-danger' role='alert'>
-                                        Ups..
-                            </div> :
+                                        Ups..{error}
+                                    </div> :
                                     < div className='alert invisible' role='alert'>
                                         Ups.. {error}
-                            </div>
+                                    </div>
                             }
+
                             <h2>New Classifieds</h2>
                             <FormClassified
                                 paramsClassified={this.state.classified}

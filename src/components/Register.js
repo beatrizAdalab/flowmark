@@ -23,7 +23,6 @@ function Register() {
                     await value.registerUser(userName, userPassword)
                 }
 
-                console.log(value, 'value')
                 setRedirect(value.access.register)
 
                 return (
@@ -73,13 +72,15 @@ function Register() {
 
                                     <div className='form-group d-flex justify-content-center pt-2'>
                                         <button
-                                            className='btn btn-primary rounded'
+                                            className='btn btn-info rounded'
                                             type='submit'>
                                             Register
                                         </button>
                                     </div>
                                 </form>
-                                <Link to='/login'> <p>Have an account? </p></Link>
+                                <Link to='/login'>
+                                    <p className='text-decoration-none text-info'>Have an account? </p>
+                                </Link>
                             </div>
                         </div>
                     </div>

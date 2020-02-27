@@ -11,8 +11,11 @@ main {
   width: 300px;
 }
 
+/* VIEW LIST CLASSIFIEDS */
+
 .card-container-img {
   height: 130px;
+  cursor: pointer;
 }
 
 .card-image {
@@ -31,22 +34,27 @@ main {
   top: 90vh;
   right: calc(50vw - 65px);
 }
-.container-detail{
+
+/* VIEW LIST DETAIL */
+
+.container-detail {
   min-height: calc(100vh - 56px);
 }
-.detail-img{
+
+.detail-img {
   height: 220px;
   object-fit: cover;
 }
 
-@media (min-width: 768px) {  
-  .detail-img{
-  height: 460px;
-  object-fit: cover;}
+@media (min-width: 768px) {
+  .detail-img {
+    height: 460px;
+    object-fit: cover;
+  }
 }
 
 @media (min-width: 992px) {
-  .card{
+  .card {
     min-height: 440px;
   }
   .card-container-img {
@@ -59,5 +67,4 @@ main {
   .container-form-access {
     width: 400px;
   }
-
 }

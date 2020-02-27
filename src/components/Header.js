@@ -14,25 +14,23 @@ function Header() {
                     <nav className='navbar navbar-light bg-white fixed-top'>
                         <div className='container'>
 
-
-                            <Link to='/listClassifieds/'>
+                            <Link className='text-decoration-none' to='/listClassifieds/'>
                                 <div className='d-flex align-items-center'>
                                     <FontAwesomeIcon className='text-info' icon={faHome} />
-                                    <h1 className='navbar-brand m-0 ml-2'>FlowMark</h1>
+                                    <h1 className='navbar-brand m-0 ml-2 '>FlowMark</h1>
                                 </div>
                             </Link>
 
                             <div className='d-flex justify-content-center align-items-center'>
                                 <Link to='/login'>
-                                    <button
-                                        className='btn btn-link'
-                                    >
+                                    <button className='btn btn-link'>
                                         <FontAwesomeIcon className='text-info' icon={faPowerOff} />
                                     </button>
                                 </Link>
                             </div>
                         </div>
-                    </nav>)
+                    </nav>
+                )
             }}
         </LoginConsumer>
     )

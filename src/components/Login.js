@@ -11,14 +11,14 @@ class Login extends Component {
             userName: '',
             userPassword: '',
             redirect: false,
-            error:false
+            error: false
         }
     }
 
     setRedirect = (isLogin, error) => {
         this.setState({
             redirect: isLogin,
-            error:error
+            error: error
         })
     }
 
@@ -56,6 +56,7 @@ class Login extends Component {
                     return (
 
                         <div className='container-access pt-4'>
+
                             {this.renderRedirect()}
 
                             {value.access.error ?
@@ -65,6 +66,7 @@ class Login extends Component {
                                     Ups.. {value.access.error}
                                 </div>
                             }
+
                             <div className=' d-flex justify-content-center pt-4'>
                                 <div className='d-flex flex-column justify-content-center align-items-center container-form-access'>
                                     <h2 className='text-center'>Login</h2>
@@ -99,18 +101,20 @@ class Login extends Component {
 
                                         <div className='form-group d-flex justify-content-center pt-2'>
                                             <button
-                                                className='btn btn-primary rounded'
+                                                className='btn btn-info rounded'
                                                 type='submit'>
                                                 Login
-                                    </button>
+                                            </button>
                                         </div>
                                     </form>
 
                                     <Link to='/register'>
                                         <p
-                                            onClick={value.resetAccess}>
+                                            className='text-decoration-none text-info'
+                                        //onClick={value.resetAccess}
+                                        >
                                             Haven´t any account?
-                                    </p>
+                                        </p>
                                     </Link>
                                 </div>
                             </div>
@@ -120,7 +124,6 @@ class Login extends Component {
             </LoginConsumer>
         );
     }
-
 }
 
 export default Login

@@ -17,15 +17,16 @@ class FilterClassifieds extends Component {
                 {(value) => {
                     return (
                         <div className='py-3'>
-
                             <div className='d-flex'>
-                                <button type='button' className='btn btn-outline-primary' data-toggle='modal' data-target='#modalFilters'>
+                                <button
+                                    type='button'
+                                    className='btn btn-outline-info'
+                                    data-toggle='modal'
+                                    data-target='#modalFilters'>
                                     Filters
                                 </button>
 
-                                <form
-                                    className='w-100 pl-2'
-                                >
+                                <form className='w-100 pl-2'>
                                     <div className='input-group'>
                                         <input type='text'
                                             className='form-control'
@@ -34,7 +35,11 @@ class FilterClassifieds extends Component {
                                             onChange={handleChange}
                                         />
                                         <div className='input-group-append'>
-                                            <button className='btn btn-outline-secondary' type='submit'>  <FontAwesomeIcon icon={faSearch} /> </button>
+                                            <button
+                                                className='btn btn-outline-info'
+                                                type='submit'>
+                                                <FontAwesomeIcon icon={faSearch} />
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -45,16 +50,14 @@ class FilterClassifieds extends Component {
                                     <div className='modal-content'>
 
                                         <div className='modal-header'>
-                                            <h5 className='modal-title' id='modalFiltersTitle'>Filters <small className='text-primary pl-5'>  classifieds </small>  </h5>
+                                            <h5 className='modal-title' id='modalFiltersTitle'>Filters </h5>
                                             <button type='button' className='close' data-dismiss='modal' aria-label='Close'>
                                                 <span aria-hidden='true'>&times;</span>
                                             </button>
                                         </div>
 
                                         <div className='modal-body'>
-                                            <form
-                                                className='pr-4 pl-4'
-                                            >
+                                            <form className='pr-4 pl-4'>
                                                 <div className='form-group p-0'>
                                                     <label htmlFor='name'>What are you searching?</label>
                                                     <input type='text'
@@ -119,19 +122,16 @@ class FilterClassifieds extends Component {
                                                             className='custom-control-input'
                                                             onChange={handleChange}
                                                         />
-                                                        <label className='custom-control-label' htmlFor='sell'>I want to sell</label>
+                                                        <label className='custom-control-label' htmlFor='sell'>
+                                                            I want to sell
+                                                        </label>
                                                     </div>
                                                 </div>
 
                                                 <div className='form-group d-flex justify-content-center  py-3'>
-                                                    {/* <button
-                                                        onClick={clearForm}
-                                                        className='btn btn-danger rounded mx-2'>
-                                                        Clear
-                                                    </button> */}
                                                     <button
                                                         type='submit'
-                                                        className='btn btn-primary rounded mx-2'>
+                                                        className='btn btn-info rounded mx-2'>
                                                         Search
                                                     </button>
                                                 </div>

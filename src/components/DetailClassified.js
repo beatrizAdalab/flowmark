@@ -26,11 +26,10 @@ class DetailClassified extends Component {
     }
 
     render() {
-        console.log(this.state.classified)
+
         const { tags, name, price, description, photo, updatedAt } = this.state.classified
+
         return (
-
-
             < LoginConsumer >
                 {(value) => {
 
@@ -39,12 +38,12 @@ class DetailClassified extends Component {
                             <div className='card detail-card w-100'>
                                 <div className='row no-gutters'>
                                     <div className='col-12 col-lg-5'>
-                                    <ReactImageFallback
-                                        src={photo}
-                                        fallbackImage={nophoto}
-                                        className='card-img detail-img'
-                                        alt={name} 
-                                    />
+                                        <ReactImageFallback
+                                            src={photo}
+                                            fallbackImage={nophoto}
+                                            className='card-img detail-img'
+                                            alt={name}
+                                        />
                                     </div>
                                     <div className='col-12 col-lg-7'>
                                         <div className='card-body d-flex flex-column justify-content-between h-100'>
@@ -69,8 +68,7 @@ class DetailClassified extends Component {
                             </div>
                         </div>
                     )
-                }
-                }
+                }}
             </LoginConsumer>
         )
     }
