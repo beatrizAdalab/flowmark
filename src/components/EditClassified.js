@@ -48,6 +48,7 @@ class EditClassified extends Component {
     }
 
     editClassified = async (id, classified) => {
+        console.log(classified, 'objeto resultado antes api')
         const editApi = await api.editClassified(id, classified)
         this.setState({
             status: {
@@ -64,9 +65,8 @@ class EditClassified extends Component {
         const value =
             name === 'tags' ?
                 element.value ? element.value.split(',') : [] :
-                //force to overwrite in the case of leaving it empty, 
-                //otherwise it is taken as false and does not edit it
-                element.value? element.value : ' '  
+                element.value
+
         this.setState({
             classified: { ...data, [name]: value }
         })
@@ -83,11 +83,20 @@ class EditClassified extends Component {
     clickForm = async (e) => {
         const id = this.props.match.params.id
         e.preventDefault();
+        // console.dir(
+        //     api.editClassified('5e4aec243976de16b4d34275', {
+        //         name: "ukelele ",
+        //         price: 25,
+        //         description: " I sell my ukelele",
+        //         tags: [],
+        //         type: "buy",
+        //         photo: "https://www.shop2rock.de/shop/images/products/main/detail/cascha_hh2024.jpg",
+        //     }), 'prueba api'
+        // )
         this.editClassified(id, this.state.classified)
     }
 
     render() {
-
         return (
             <LoginConsumer>
                 {(value) => {

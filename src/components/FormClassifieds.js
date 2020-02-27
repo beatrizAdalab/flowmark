@@ -9,7 +9,7 @@ class FormClassified extends Component {
                 name: '',
                 price: 0,
                 description: '',
-                tags: [],
+                //tags: [],
                 type: '',
                 photo: '',
             }
@@ -18,8 +18,7 @@ class FormClassified extends Component {
 
     render() {
         const { name, price, description, tags, type, photo } = this.props.paramsClassified
-        console.log(this.props.paramsClassified.photo)
-        const {handleChange, clickForm, textButton}= this.props
+        const { handleChange, clickForm, textButton } = this.props
         return (
             <LoginConsumer>
                 {(value) => {
@@ -40,7 +39,7 @@ class FormClassified extends Component {
                                     onChange={handleChange}
                                 />
                             </div>
-                            
+
                             <div className='form-group'>
                                 <label htmlFor='price'>Price <small className='text-muted'> * </small> </label>
                                 <input
@@ -80,7 +79,7 @@ class FormClassified extends Component {
                             <div className='form-group p-0'>
                                 <div className='custom-control custom-radio custom-control-inline'>
                                     <input
-                                        checked={type==='buy'}
+                                        checked={type === 'buy'}
                                         type='radio'
                                         id='buy'
                                         name='type'
@@ -93,7 +92,7 @@ class FormClassified extends Component {
 
                                 <div className='custom-control custom-radio custom-control-inline'>
                                     <input
-                                    checked={type==='sell'}
+                                        checked={type === 'sell'}
                                         type='radio'
                                         id='sell'
                                         name='type'
@@ -105,24 +104,24 @@ class FormClassified extends Component {
                                 </div>
                             </div>
 
-                            <div className='form-group'>
-                                <label htmlFor='tag'>Tag </label>
+                            {/* <div className='form-group'>
+                                <label htmlFor='tags'>Tag </label>
                                 <input
                                     className='form-control'
                                     type='text'
-                                    id='tag'
+                                    id='tags'
                                     name='tags'
                                     value={tags}
                                     onChange={handleChange}
                                 />
-                            </div>
+                            </div> */}
 
                             <div className='form-group d-flex justify-content-center pt-2'>
                                 <button
                                     className='btn btn-primary rounded'
                                     type='submit'>
                                     {textButton}
-                                    </button>
+                                </button>
                             </div>
                         </form>
 

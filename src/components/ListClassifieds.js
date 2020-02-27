@@ -65,7 +65,7 @@ class ListClassifieds extends Component {
     }
 
     render() {
-        const { classifieds, tags, loaded } = this.state.store
+        const { classifieds, tags } = this.state.store
         return (
             <LoginConsumer>
                 {(value) => {
@@ -79,7 +79,7 @@ class ListClassifieds extends Component {
                                     handleChange={this.handleChange}
                                 />
                                 <Link to='/newClassified'>
-                                    <button type="button" className="btn btn-outline-success w-100 ">New classified</button>
+                                    <button type="button" className="btn btn-outline-info w-100 ">New classified</button>
                                 </Link>
                             </div>
 
