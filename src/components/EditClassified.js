@@ -64,8 +64,9 @@ class EditClassified extends Component {
         const value =
             name === 'tags' ?
                 element.value ? element.value.split(',') : [] :
-                element.value;
-
+                //force to overwrite in the case of leaving it empty, 
+                //otherwise it is taken as false and does not edit it
+                element.value? element.value : ' '  
         this.setState({
             classified: { ...data, [name]: value }
         })
@@ -86,8 +87,8 @@ class EditClassified extends Component {
     }
 
     render() {
-        return (
 
+        return (
             <LoginConsumer>
                 {(value) => {
                     return (

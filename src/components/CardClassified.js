@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { LoginConsumer } from '../context/LoginContext';
+import ReactImageFallback from "react-image-fallback";
+import nophoto from '../assets/images/nophoto.png'
 
 // get our fontawesome imports
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
@@ -21,7 +23,12 @@ const CardClassified = ({ classified }) => {
                             className='text-decoration-none text-body'
                         >
                             <div className='card-container-img card-image'>
-                                <img src={classified.photo ? classified.photo : 'sorry, photo not available'} className="card-img-top card-image" alt={classified.photo ? classified.name : 'sorry, photo not available'} />
+                                <ReactImageFallback
+                                src={classified.photo}
+                                fallbackImage={nophoto}
+                                className='card-img card-image'
+                                alt={classified.name} 
+                                />
                             </div>
 
                             <div className='card-body p-2'>

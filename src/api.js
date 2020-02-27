@@ -91,6 +91,7 @@ export const api = {
     },
 
     editClassified: async function (id, params) {
+        console.log(params, 'params')
         try {
             const response = await fetch(`${url}anuncios/${id}`, {
                 method: 'PUT',

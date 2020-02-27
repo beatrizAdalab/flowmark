@@ -18,6 +18,7 @@ class FormClassified extends Component {
 
     render() {
         const { name, price, description, tags, type, photo } = this.props.paramsClassified
+        console.log(this.props.paramsClassified.photo)
         const {handleChange, clickForm, textButton}= this.props
         return (
             <LoginConsumer>
