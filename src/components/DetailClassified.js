@@ -17,30 +17,51 @@ class DetailClassified extends Component {
 
     getDetailClassified = async () => {
         const id = this.props.match.params.id
-        console.log(id, 'id')
+
         this.setState({
             classified: await api.getDetail(id),
         })
     }
 
     render() {
-        const { tags, _id, name, price, description, type, photo, updateAt } = this.state.classified
+        console.log(this.state.classified)
+        const { tags, _id, name, price, description, type, photo, updatedAt } = this.state.classified
         return (
 
 
             < LoginConsumer >
                 {(value) => {
-                    console.log('COMPONENTE detail MONTADO')
+                 
 
                     return (
+                        <div className='container container-detail d-flex justify-content-center align-items-center'>
 
-                        <div>
-
-                            <h1>detalle</h1>
-                            <div>id:{_id}</div>
-                            <div>name: {name}</div>
-                            <div>price: {price}</div>
-                            <div>description: {description}</div>
+                        <div className='card detail-card w-100'>
+                            <div className='row no-gutters'>
+                                <div className='col-12 col-lg-5'>
+                                    <img src={photo} className='card-img detail-img' alt={name} />
+                                </div>
+                                <div className='col-12 col-lg-7'>
+                                    <div className='card-body d-flex flex-column justify-content-between h-100'>
+                                        <div>
+                                            <h2 className='card-title'>{name}</h2>
+                                            <h4>{price} € </h4>
+                                            <div>
+                                                {tags ?
+                                                    tags.map((tag, index) => <span key={index} className='badge badge-pill mr-2 mb-2 badge-secondary'> {tag} </span>)
+                                                    : false}
+                                            </div>
+                                        </div>
+                                        <p className='card-text h-100'>
+                                            {description}
+                                        </p>
+                                        <div className='card-footer bg-transparent'>
+                                            <small className='text-muted'>Last updated {updatedAt} </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     )
                 }
@@ -54,20 +75,3 @@ class DetailClassified extends Component {
 }
 
 export default DetailClassified;
-
-
-
-
-{/* 
-                        {success === true ?
-                                <div className='alert alert-success' role='alert'>
-                                    Classified created
-                            </div> :
-                            success === false ?
-                                    < div className='alert alert-danger' role='alert'>
-                                        Ups..
-                            </div> :
-                                    < div className='alert invisible' role='alert'>
-                                        Ups.. {error}
-                            </div>
-                            } */}

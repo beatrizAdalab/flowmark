@@ -27,7 +27,6 @@ class ListClassifieds extends Component {
         };
     }
 
-
     componentDidMount() {
         const url = this.props.location.search
         const paramsUrl = urlRouter.searchStringToObject(url)
@@ -63,7 +62,6 @@ class ListClassifieds extends Component {
         this.setState({
             paramsFilter: { ...data, [name]: value }
         })
-
     }
 
     render() {
@@ -71,9 +69,8 @@ class ListClassifieds extends Component {
         return (
             <LoginConsumer>
                 {(value) => {
-
                     return (
-                        < div className=''>
+                        <div className=''>
                             <div className='d-flex flex-column pb-3'>
                                 <FilterClassifieds
                                     tags={tags}
@@ -87,7 +84,7 @@ class ListClassifieds extends Component {
                             </div>
 
                             {!classifieds ?
-                                <Redirect to={`/login`} /> :
+                                <div>UPS</div> :
                                 classifieds.length > 0 ?
                                     <div className='container-classifieds pt-4'>
                                         <div className='row'>

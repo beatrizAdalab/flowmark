@@ -31,7 +31,6 @@ class EditClassified extends Component {
 
     getClassified = async (id) => {
         const cl = await api.getDetail(id)
-        console.log(cl)
         this.setState({
             classified: {
                 name: cl.name,
@@ -75,10 +74,8 @@ class EditClassified extends Component {
     renderRedirect = () => {
         const id = this.props.match.params.id
         const redirect = this.state.status.success
-        console.log(redirect, 'redirect')
         if (redirect) {
             return <Redirect to={`/detailClassifieds/${id}`} />
-
         }
     }
 
@@ -89,12 +86,10 @@ class EditClassified extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
 
             <LoginConsumer>
                 {(value) => {
-                    const { success, error } = this.state.status
                     return (
                         <div className='container p-5'>
                             <h2>Edit Classified</h2>

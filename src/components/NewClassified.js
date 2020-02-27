@@ -47,9 +47,7 @@ class NewClassified extends Component {
 
     clickForm = (e) => {
         e.preventDefault();
-        console.log(this.state)
-        //createNewClassified(this.state.classified)
-        //probar si los campos son requeridos en la llamada
+        this.createNewClassified(this.state.classified)
     }
 
     render() {

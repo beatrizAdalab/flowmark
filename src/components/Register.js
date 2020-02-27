@@ -16,6 +16,7 @@ function Register() {
     return (
         <LoginConsumer>
             {(value) => {
+                console.log(value.access.register)
 
                 const checkRegister = async (e) => {
                     e.preventDefault()
@@ -29,11 +30,11 @@ function Register() {
 
                         {renderRedirect()}
 
-                        {value.access.error ?
+                        {value.access.register ?
                             <div className='alert alert-danger ' role='alert'>
-                                Ups.. {value.access.error}
+                                Ups.. {value.access.register}
                             </div> : < div className='alert alert-danger invisible ' role='alert'>
-                                Ups.. {value.access.error}
+                                Ups.. {value.access.register}
                             </div>}
 
                         <div className=' d-flex justify-content-center pt-4'>
@@ -80,7 +81,7 @@ function Register() {
                                 <Link to='/login'> <p>Have an account? </p></Link>
                             </div>
                         </div>
-                    </div >
+                    </div>
                 )
             }}
         </LoginConsumer>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { api } from '../api'
 import { LoginConsumer } from './Login';
-import Header from './Header'
+//import Header from './Header'
 
 
 class Access extends Component {
@@ -19,7 +19,6 @@ class Access extends Component {
 
     checkCookiesWhitCall = async () => {
         const test = await api.getDetail('')
-        console.log(test, 'test')
         this.setState({
             test
         })
@@ -35,7 +34,7 @@ class Access extends Component {
         return (
             <div>
 
-                <Header />
+ 
             </div>
         )
     }

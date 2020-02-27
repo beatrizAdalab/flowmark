@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Login from './components/Login';
 import Register from './components/Register';
 import ErrorBoundary from './ErrorBoundary'
-import Access from './components/Access'
+//import Access from './components/Access'
+import Header from './components/Header'
 import LoginContext from './context/LoginContext'
 import ListClassifieds from './components/ListClassifieds'
 import DetailClassifieds from './components/DetailClassified'
@@ -19,7 +20,7 @@ class App extends Component {
         <ErrorBoundary>
           <LoginContext>
             <div className='App bg-light'>
-              <Access />
+              <Header />
               <main className='container'>
                 <Switch>
                   <Route path='/login' component={Login} />

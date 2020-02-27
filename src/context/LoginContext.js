@@ -17,17 +17,15 @@ class LoginContext extends Component {
         };
     }
 
-    loginUser = async (userName, userPassword) => {
-        const isLogin = await api.login(userName, userPassword)
-        const error = isLogin.error
+
+    loginUser = async (isLogin, error) => {
+       
         const dataAccess = this.state
         if (isLogin.success) {
             this.setState({
-                login: true,
+                login: isLogin.success,
                 register: true,
                 error: false,
-                userName,
-                userPassword
             })
         } else {
             this.setState({
