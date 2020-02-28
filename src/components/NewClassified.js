@@ -17,11 +17,22 @@ class NewClassified extends Component {
                 type: '',
                 photo: '',
             },
+            tagsStore: [],
             status: {
                 success: '',
                 error: false
             }
         }
+    }
+
+    componentDidMount(){
+        this.getStore()
+    }
+
+    getStore = async (paramsApi) => {
+        this.setState({
+            tagsStore:  await api.getTags(), 
+        })
     }
 
     createNewClassified = async (newClassified) => {
@@ -34,14 +45,27 @@ class NewClassified extends Component {
         const element = e.target
         const data = this.state.classified
         const name = element.name
-        const value =
-            name === 'tags' ?
-                element.value ? element.value.split(',') : [] :
-                element.value;
+        const value = element.value
+             
+        if (name === 'tags'){
+            const tags = this.state.classified.tags
+         
+                if (!tags.includes(value)){
+                    this.setState({
+                        classified: { ...data, [name]: [...tags, value] }
+                    }) 
+                }else {
+                    
+                    this.setState({
+                        classified: { ...data, [name]: tags.filter(item=> item !== value)}
+                    }) 
+                }
 
-        this.setState({
-            classified: { ...data, [name]: value }
-        })
+        } else {
+            this.setState({
+                classified: { ...data, [name]: value  }
+            })
+        }
     }
 
     clickForm = (e) => {
@@ -80,6 +104,7 @@ class NewClassified extends Component {
 
                             <h2>New Classifieds</h2>
                             <FormClassified
+                                store={this.state.tagsStore}
                                 paramsClassified={this.state.classified}
                                 handleChange={this.handleChange}
                                 clickForm={this.clickForm}

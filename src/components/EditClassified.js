@@ -5,6 +5,7 @@ import { api } from '../api'
 import FormClassified from './FormClassifieds'
 
 
+
 class EditClassified extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +18,7 @@ class EditClassified extends Component {
                 type: '',
                 photo: '',
             },
+            tagsStore: [],
             status: {
                 success: undefined,
                 error: ''
@@ -27,6 +29,13 @@ class EditClassified extends Component {
     componentDidMount() {
         const id = this.props.match.params.id
         this.getClassified(id)
+        this.getStore()
+    }
+
+    getStore = async (paramsApi) => {
+        this.setState({
+            tagsStore:  await api.getTags(), 
+        })
     }
 
     getClassified = async (id) => {
@@ -48,7 +57,6 @@ class EditClassified extends Component {
     }
 
     editClassified = async (id, classified) => {
-        console.log(classified, 'objeto resultado antes api')
         const editApi = await api.editClassified(id, classified)
         this.setState({
             status: {
@@ -62,14 +70,28 @@ class EditClassified extends Component {
         const element = e.target
         const data = this.state.classified
         const name = element.name
-        const value =
-            name === 'tags' ?
-                element.value ? element.value.split(',') : [] :
-                element.value
+        const value = element.value
+             
+        if (name === 'tags'){
+            const tags = this.state.classified.tags
+         
+                if (!tags.includes(value)){
+                    this.setState({
+                        classified: { ...data, [name]: [...tags, value] }
+                    }) 
+                }else {
+                    
+                    this.setState({
+                        classified: { ...data, [name]: tags.filter(item=> item !== value)}
+                    }) 
+                }
 
-        this.setState({
-            classified: { ...data, [name]: value }
-        })
+        } else {
+            console.log(value)
+            this.setState({
+                classified: { ...data, [name]: value  }
+            })
+        }
     }
 
     renderRedirect = () => {
@@ -82,16 +104,6 @@ class EditClassified extends Component {
     clickForm = async (e) => {
         const id = this.props.match.params.id
         e.preventDefault();
-        // console.dir(
-        //     api.editClassified('5e4aec243976de16b4d34275', {
-        //         name: "ukelele ",
-        //         price: 25,
-        //         description: " I sell my ukelele",
-        //         tags: [],
-        //         type: "buy",
-        //         photo: "https://www.shop2rock.de/shop/images/products/main/detail/cascha_hh2024.jpg",
-        //     }), 'prueba api'
-        // )
         this.editClassified(id, this.state.classified)
     }
 
@@ -106,6 +118,7 @@ class EditClassified extends Component {
                             {this.renderRedirect()}
 
                             <FormClassified
+                                store={this.state.tagsStore}
                                 paramsClassified={this.state.classified}
                                 handleChange={this.handleChange}
                                 clickForm={this.clickForm}

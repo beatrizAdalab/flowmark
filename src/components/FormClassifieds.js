@@ -9,7 +9,7 @@ class FormClassified extends Component {
                 name: '',
                 price: 0,
                 description: '',
-                //tags: [],
+                tags: [],
                 type: '',
                 photo: '',
             }
@@ -18,7 +18,7 @@ class FormClassified extends Component {
 
     render() {
         const { name, price, description, tags, type, photo } = this.props.paramsClassified
-        const { handleChange, clickForm, textButton } = this.props
+        const { handleChange, clickForm, textButton, store } = this.props
 
         return (
             <LoginConsumer>
@@ -55,10 +55,35 @@ class FormClassified extends Component {
                                 />
                             </div>
 
+                            <div className='form-group p-0'> 
+                            <span className='pr-4'>Tags </span> 
+                                {
+                                    store.map(item => {
+                                        console.log(tags)
+                                        if (item) {
+                                            return (
+                                                <div key={item} className='pl-2form-check form-check-inline'>
+                                                    <input
+                                                        name='tags'
+                                                        className='form-check-input'
+                                                        onChange={handleChange}
+                                                        checked={tags.includes(item)?true:false}
+                                                        type='checkbox'
+                                                        id='inlineCheckbox1'
+                                                        value={item} />
+                                                    <label className='form-check-label' htmlFor='inlineCheckbox1'>{item} </label>
+
+                                                </div>)
+                                        } else {
+                                            return false
+                                        }
+                                    })
+                                }
+                            </div>
+
                             <div className='form-group'>
                                 <label htmlFor='descirption'>Description</label>
                                 <textarea
-                                    required
                                     name='description'
                                     id='description'
                                     className='form-control'
@@ -108,18 +133,6 @@ class FormClassified extends Component {
                                     <label className='custom-control-label' htmlFor='sell'>I want to sell</label>
                                 </div>
                             </div>
-
-                            {/* <div className='form-group'>
-                                <label htmlFor='tags'>Tag </label>
-                                <input
-                                    className='form-control'
-                                    type='text'
-                                    id='tags'
-                                    name='tags'
-                                    value={tags}
-                                    onChange={handleChange}
-                                />
-                            </div> */}
 
                             <div className='form-group d-flex justify-content-center pt-2'>
                                 <button

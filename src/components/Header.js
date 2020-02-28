@@ -13,15 +13,13 @@ function Header() {
                 return (
                     <nav className='navbar navbar-light bg-white fixed-top'>
                         <div className='container'>
-
+                        <h1 className='navbar-brand m-0 ml-2 '> <span className='text-info'>F</span>lowMark</h1>
+                            <div className='d-flex justify-content-center align-items-center'>
                             <Link className='text-decoration-none' to='/listClassifieds/'>
                                 <div className='d-flex align-items-center'>
                                     <FontAwesomeIcon className='text-info' icon={faHome} />
-                                    <h1 className='navbar-brand m-0 ml-2 '>FlowMark</h1>
                                 </div>
                             </Link>
-
-                            <div className='d-flex justify-content-center align-items-center'>
                                 <Link to='/login'>
                                     <button className='btn btn-link'>
                                         <FontAwesomeIcon className='text-info' icon={faPowerOff} />

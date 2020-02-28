@@ -40,7 +40,8 @@ class Login extends Component {
 
     render() {
 
-        const { userName, userPassword } = this.state
+
+        const { userName, userPassword, redirect } = this.state
         return (
             <LoginConsumer>
                 {(value) => {
@@ -57,7 +58,7 @@ class Login extends Component {
 
                         <div className='container-access pt-4'>
 
-                            {this.renderRedirect()}
+                            {this.renderRedirect(this.state.redirect)}
 
                             {value.access.error ?
                                 <div className='alert alert-danger' role='alert'>
@@ -109,10 +110,7 @@ class Login extends Component {
                                     </form>
 
                                     <Link to='/register'>
-                                        <p
-                                            className='text-decoration-none text-info'
-                                        //onClick={value.resetAccess}
-                                        >
+                                        <p className='text-decoration-none text-info'>
                                             Haven´t any account?
                                         </p>
                                     </Link>

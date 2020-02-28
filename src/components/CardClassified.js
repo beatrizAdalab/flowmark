@@ -35,6 +35,11 @@ const CardClassified = ({ classified }) => {
                                     <h5 className='card-title'> {classified.name}</h5>
                                     <p className='text-info'> {classified.price} €</p>
                                     <p > {classified.description} </p>
+                                    <div>
+                                                    {classified.tags ?
+                                                        classified.tags.map((tag, index) => <span key={index} className='badge badge-pill mr-2 mb-2 badge-secondary'> {tag} </span>)
+                                                        : false}
+                                                </div>
                                 </div>
                             </Link>
                             <div className='card-footer bg-transparent p-2'>

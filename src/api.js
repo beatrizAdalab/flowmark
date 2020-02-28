@@ -107,6 +107,7 @@ export const api = {
     },
 
     newClassified: async function (params) {
+        console.log(params, 'params to api')
         try {
             const response = await fetch(`${url}anuncios`, {
                 method: 'POST',

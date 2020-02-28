@@ -43,6 +43,13 @@ class FilterClassifieds extends Component {
                                         </div>
                                     </div>
                                 </form>
+                                <form className='pl-2'>
+                                            <button
+                                                className='btn btn-outline-info px-5'
+                                                type='submit'>
+                                                All
+                                            </button>
+                                </form>
                             </div>
 
                             <div className='modal fade' id='modalFilters' tabIndex='-1' role='dialog' aria-labelledby='modalFiltersTitle' aria-hidden='true'>
