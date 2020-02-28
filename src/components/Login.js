@@ -40,8 +40,7 @@ class Login extends Component {
 
     render() {
 
-
-        const { userName, userPassword, redirect } = this.state
+        const { userName, userPassword } = this.state
         return (
             <LoginConsumer>
                 {(value) => {

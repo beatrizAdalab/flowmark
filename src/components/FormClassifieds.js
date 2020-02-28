@@ -59,7 +59,6 @@ class FormClassified extends Component {
                             <span className='pr-4'>Tags </span> 
                                 {
                                     store.map(item => {
-                                        console.log(tags)
                                         if (item) {
                                             return (
                                                 <div key={item} className='pl-2form-check form-check-inline'>
