@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { LoginConsumer } from '../context/LoginContext';
 
 //fontawesome imports
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 class FilterClassifieds extends Component {

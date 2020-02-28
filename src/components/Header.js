@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { LoginConsumer } from '../context/LoginContext';
 
 // fontawesome imports
-import { faPowerOff, faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPowerOff, faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Header() {
     return (

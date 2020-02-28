@@ -21,7 +21,7 @@ class ErrorBoundary extends Component {
         if (this.state.errorInfo) {
 
             return (
-                <div>
+                <div className='container'>
                     <h2>Something went wrong.</h2>
                     <details style={{ whiteSpace: 'pre-wrap' }}>
                         {this.state.error && this.state.error.toString()}

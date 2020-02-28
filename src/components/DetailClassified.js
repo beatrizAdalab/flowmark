@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { api } from '../api'
 import { LoginConsumer } from '../context/LoginContext';
-import ReactImageFallback from "react-image-fallback";
+import ReactImageFallback from 'react-image-fallback';
 import nophoto from '../assets/images/nophoto.png'
 
 
@@ -35,7 +35,7 @@ class DetailClassified extends Component {
 
                     return (
                         <div className='container container-detail d-flex justify-content-center align-items-center'>
-                            <div className='card detail-card w-100'>
+                            <div className='card shadow-sm detail-card w-100'>
                                 <div className='row no-gutters'>
                                     <div className='col-12 col-lg-5'>
                                         <ReactImageFallback

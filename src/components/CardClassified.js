@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { LoginConsumer } from '../context/LoginContext';
-import ReactImageFallback from "react-image-fallback";
+import ReactImageFallback from 'react-image-fallback';
 import nophoto from '../assets/images/nophoto.png';
 
 // get our fontawesome imports
-import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const CardClassified = ({ classified }) => {
@@ -30,8 +30,8 @@ const CardClassified = ({ classified }) => {
                                         alt={classified.name}
                                     />
                             
-                                    <div className="card-img-overlay">
-                                        <span className="p-2 rounded-circle badge badge-danger">{classified.price} €</span>
+                                    <div className='card-img-overlay'>
+                                        <span className='p-2 rounded-circle badge badge-danger'>{classified.price} €</span>
                                     </div>
 
                                 </div>
