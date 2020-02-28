@@ -20,7 +20,7 @@ class App extends Component {
           <LoginContext>
             <div className='App bg-light'>
               <Header />
-              <main className='container'>
+              <main className=''>
                 <Switch>
                   <Route path='/login' component={Login} />
                   <Route path='/register' component={Register} />

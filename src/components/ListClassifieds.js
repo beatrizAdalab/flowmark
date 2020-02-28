@@ -64,13 +64,14 @@ class ListClassifieds extends Component {
     }
 
     render() {
-        const { classifieds, tags } = this.state.store
+        const { classifieds, tags, loaded } = this.state.store
+        console.log(loaded)
 
         return (
             <LoginConsumer>
                 {(value) => {
                     return (
-                        <div className=''>
+                        <div className='container'>
                             <div className='d-flex flex-column pb-3'>
                                 <FilterClassifieds
                                     tags={tags}
@@ -87,22 +88,31 @@ class ListClassifieds extends Component {
                                 </Link>
                             </div>
 
-                            {!classifieds ?
-                                <div>UPS</div> :
-                                classifieds.length > 0 ?
-                                    <div className='container-classifieds pt-4'>
-                                        <div className='row'>
-                                            {classifieds.map(item => (
-                                                <CardClassified
-                                                    classified={item}
-                                                    key={item._id} />
-                                            ))}
+                            {!loaded ?
+                                !classifieds ?
+                                    <div>UPS</div> :
+                                    classifieds.length > 0 ?
+                                        <div className='container-classifieds pt-4'>
+                                            <div className='row'>
+                                                {classifieds.map(item => (
+                                                    <CardClassified
+                                                        classified={item}
+                                                        key={item._id} />
+                                                ))}
+                                            </div>
                                         </div>
+                                        : <div className='d-flex justify-content-center align-content-center py-5'>
+                                            <h4 className='text-secondary'>Ups! Its seems that there is no classifieds... try again</h4>
+                                        </div>
+                                :
+                                <div className='d-flex align-items-center justify-content-center p-5'>
+                                    <div className='spinner-grow text-info p-5' role='status'>
+                                        <span className='sr-only'>Loading...</span>
                                     </div>
-                                    : <div className='d-flex justify-content-center align-content-center py-5'>
-                                        <h4 className='text-secondary'>Ups! Its seems that there is no classifieds... try again</h4>
-                                    </div>
+                                </div>
                             }
+
+                        
                         </div>
                     )
                 }}

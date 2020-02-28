@@ -55,7 +55,7 @@ class Login extends Component {
 
                     return (
 
-                        <div className='container-access pt-4'>
+                        <div className='container-access container pt-4'>
 
                             {this.renderRedirect(this.state.redirect)}
 

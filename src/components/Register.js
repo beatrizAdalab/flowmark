@@ -26,7 +26,7 @@ function Register() {
                 setRedirect(value.access.register)
 
                 return (
-                    <div className='container-access pt-4'>
+                    <div className='container container-access pt-4'>
 
                         {renderRedirect()}
 
