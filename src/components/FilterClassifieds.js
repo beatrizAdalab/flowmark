@@ -45,7 +45,7 @@ class FilterClassifieds extends Component {
                                 </form>
                                 <form className='pl-2'>
                                             <button
-                                                className='btn btn-outline-info px-5'
+                                                className='btn btn-outline-info px-3'
                                                 type='submit'>
                                                 All
                                             </button>

@@ -15,7 +15,7 @@ const CardClassified = ({ classified }) => {
             {(value) => {
 
                 return (
-                    <div className='col-6 col-md-4 col-lg-3 mb-5'>
+                    <div className='col-12 col-md-4 col-lg-4 mb-5'>
                         <div className='card shadow-sm bg-white rounded d-flex flex-column justify-content-between h-100'>
                             <Link
                                 to={`/detailClassifieds/${classified._id}`}
@@ -29,18 +29,23 @@ const CardClassified = ({ classified }) => {
                                         className='card-img card-image border-bottom'
                                         alt={classified.name}
                                     />
-                                </div>
+                            
+                                    <div className="card-img-overlay">
+                                        <span className="p-2 rounded-circle badge badge-danger">{classified.price} €</span>
+                                    </div>
 
+                                </div>
                                 <div className='card-body p-2'>
                                     <h5 className='card-title'> {classified.name}</h5>
-                                    <p className='text-info'> {classified.price} €</p>
                                     <p > {classified.description} </p>
                                     <div>
-                                                    {classified.tags ?
-                                                        classified.tags.map((tag, index) => <span key={index} className='badge badge-pill mr-2 mb-2 badge-secondary'> {tag} </span>)
-                                                        : false}
-                                                </div>
+                                        {classified.tags ?
+                                            classified.tags.map((tag, index) => <span key={index} className='badge badge-pill mr-2 mb-2 badge-secondary'> {tag} </span>)
+                                            : false}
+                                    </div>
                                 </div>
+
+                              
                             </Link>
                             <div className='card-footer bg-transparent p-2'>
                                 <Link
