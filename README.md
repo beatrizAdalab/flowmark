@@ -13,7 +13,7 @@ There are 6 sections: registration, login, listing of ads, ad creation, ad editi
 ![Scheme](./scheme.png)
 
 
-##🔧 Available Scripts  
+## 🔧 Available Scripts  
 
 In the project directory, you can run:
 
